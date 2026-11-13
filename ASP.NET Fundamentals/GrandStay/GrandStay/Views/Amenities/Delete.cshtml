@@ -1,0 +1,53 @@
+@model GrandStay.Models.Amenity
+
+@{
+    ViewData["Title"] = "Delete Amenity";
+}
+
+<div class="container py-4">
+    <h1>Delete Amenity</h1>
+    <p class="text-muted">
+        Review the amenity information before deleting it.
+    </p>
+
+    <div class="alert alert-warning">
+        <strong>Warning!</strong>
+        Are you sure you want to delete this amenity?
+        This action cannot be undone.
+    </div>
+
+    <div class="card shadow-sm" style="max-width: 700px;">
+        <div class="card-header">
+            <h5 class="mb-0">Amenity Information</h5>
+        </div>
+
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Name</dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+
+                <dt class="col-sm-4">Description</dt>
+                <dd class="col-sm-8">
+                    @(string.IsNullOrWhiteSpace(Model.Description)
+                        ? "No description"
+                        : Model.Description)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="card-footer d-flex gap-2">
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <button type="submit" class="btn btn-danger">
+                    Confirm Delete
+                </button>
+            </form>
+
+            <a asp-action="Index"
+               class="btn btn-outline-secondary">
+                Cancel
+            </a>
+        </div>
+    </div>
+</div>

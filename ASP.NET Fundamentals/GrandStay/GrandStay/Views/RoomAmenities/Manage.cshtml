@@ -1,0 +1,138 @@
+﻿@model GrandStay.ViewModels.RoomAmenitiesViewModel
+
+@{
+    ViewData["Title"] = "Manage Room Amenities";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Room Amenities</h1>
+            <p class="text-muted mb-0">
+                Manage amenities for Room @Model.Room.RoomNumber
+            </p>
+        </div>
+
+        <a asp-controller="Rooms"
+           asp-action="Index"
+           class="btn btn-outline-secondary">
+            Back to Rooms
+        </a>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert">
+            </button>
+        </div>
+    }
+
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+            <h5 class="fw-bold mb-3">Room Information</h5>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="text-muted">Room Number</span>
+                    <p class="fw-semibold">Room @Model.Room.RoomNumber</p>
+                </div>
+
+                <div class="col-md-4">
+                    <span class="text-muted">Room Type</span>
+                    <p class="fw-semibold">@Model.Room.RoomType.Name</p>
+                </div>
+
+                <div class="col-md-4">
+                    <span class="text-muted">Status</span>
+                    <p>
+                        @if (Model.Room.IsActive)
+                        {
+                            <span class="badge bg-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Inactive</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+            <h5 class="fw-bold mb-2">Available Amenities</h5>
+
+            <p class="text-muted mb-4">
+                Select all amenities available in this room.
+            </p>
+
+            @if (Model.AvailableAmenities.Any())
+            {
+                <form asp-action="Manage"
+                      asp-route-id="@Model.Room.Id"
+                      method="post">
+
+                    <div class="row g-3">
+                        @foreach (var amenity in Model.AvailableAmenities)
+                        {
+                            <div class="col-md-6 col-lg-4">
+                                <label class="border rounded p-3 d-flex align-items-start gap-3 h-100">
+                                    <input type="checkbox"
+                                           name="selectedAmenityIds"
+                                           value="@amenity.Id"
+                                           class="form-check-input mt-1"
+                                           checked="@Model.SelectedAmenityIds.Contains(amenity.Id)" />
+
+                                    <span>
+                                        <strong>@amenity.Name</strong>
+
+                                        @if (!string.IsNullOrWhiteSpace(amenity.Description))
+                                        {
+                                            <br />
+                                            <small class="text-muted">
+                                                @amenity.Description
+                                            </small>
+                                        }
+                                    </span>
+                                </label>
+                            </div>
+                        }
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-dark">
+                            Save Amenities
+                        </button>
+
+                        <a asp-controller="Rooms"
+                           asp-action="Index"
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <div class="text-center py-4">
+                    <h6>No amenities available</h6>
+                    <p class="text-muted">
+                        Add amenities before assigning them to rooms.
+                    </p>
+                    <a asp-controller="Amenities"
+                       asp-action="Create"
+                       class="btn btn-dark">
+                        Create Amenity
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

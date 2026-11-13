@@ -1,0 +1,128 @@
+@model GrandStay.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Booking Details</h1>
+            <p class="text-muted mb-0">
+                Reservation #@Model.Id
+            </p>
+        </div>
+
+        <span class="badge fs-6
+            @(Model.Status == GrandStay.Models.BookingStatus.Confirmed ? "bg-success" :
+  Model.Status == GrandStay.Models.BookingStatus.Pending ? "bg-warning text-dark" :
+  Model.Status == GrandStay.Models.BookingStatus.Cancelled ? "bg-danger" :
+  "bg-secondary")">
+            @Model.Status
+        </span>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Guest Information</h5>
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">Full Name</dt>
+                        <dd class="col-sm-8">
+                            @Model.Guest?.FirstName @Model.Guest?.LastName
+                        </dd>
+
+                        <dt class="col-sm-4">Email</dt>
+                        <dd class="col-sm-8">
+                            @Model.Guest?.Email
+                        </dd>
+
+                        <dt class="col-sm-4">Phone Number</dt>
+                        <dd class="col-sm-8">
+                            @Model.Guest?.PhoneNumber
+                        </dd>
+                    </dl>
+
+                    <hr />
+
+                    <h5 class="fw-bold mb-3">Room Information</h5>
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">Room Number</dt>
+                        <dd class="col-sm-8">
+                            Room @Model.Room?.RoomNumber
+                        </dd>
+
+                        <dt class="col-sm-4">Room Type</dt>
+                        <dd class="col-sm-8">
+                            @Model.Room?.RoomType?.Name
+                        </dd>
+
+                        <dt class="col-sm-4">Description</dt>
+                        <dd class="col-sm-8">
+                            @Model.Room?.Description
+                        </dd>
+                    </dl>
+
+                    <hr />
+
+                    <h5 class="fw-bold mb-3">Stay Information</h5>
+
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Check-in</dt>
+                        <dd class="col-sm-8">
+                            @Model.CheckIn.ToString("dd MMMM yyyy")
+                        </dd>
+
+                        <dt class="col-sm-4">Check-out</dt>
+                        <dd class="col-sm-8">
+                            @Model.CheckOut.ToString("dd MMMM yyyy")
+                        </dd>
+
+                        <dt class="col-sm-4">Duration</dt>
+                        <dd class="col-sm-8">
+                            @((Model.CheckOut.Date - Model.CheckIn.Date).Days) nights
+                        </dd>
+
+                        <dt class="col-sm-4">Total Price</dt>
+                        <dd class="col-sm-8 fw-bold">
+                            @Model.TotalPrice.ToString("N2") BGN
+                        </dd>
+
+                        <dt class="col-sm-4">Created At</dt>
+                        <dd class="col-sm-8">
+                            @Model.CreatedAt.ToLocalTime().ToString("dd MMMM yyyy, HH:mm")
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-3">Actions</h5>
+
+                    <a asp-action="Edit"
+                       asp-route-id="@Model.Id"
+                       class="btn btn-dark w-100 mb-2">
+                        Edit Booking
+                    </a>
+
+                    <a asp-action="Delete"
+                       asp-route-id="@Model.Id"
+                       class="btn btn-outline-danger w-100 mb-2">
+                        Delete Booking
+                    </a>
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary w-100">
+                        Back to Bookings
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

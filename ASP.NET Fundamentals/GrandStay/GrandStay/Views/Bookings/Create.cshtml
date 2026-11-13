@@ -1,0 +1,103 @@
+@model GrandStay.Models.Booking
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1 class="fw-bold">Create Booking</h1>
+        <p class="text-muted">Create a new hotel reservation.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="GuestId" class="form-label">
+                                Guest
+                            </label>
+                            <select asp-for="GuestId"
+                                    class="form-select"
+                                    asp-items="ViewBag.GuestId">
+                                <option value="">-- Select a guest --</option>
+                            </select>
+                            <span asp-validation-for="GuestId"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RoomId" class="form-label">
+                                Room
+                            </label>
+                            <select asp-for="RoomId"
+                                    class="form-select"
+                                    asp-items="ViewBag.RoomId">
+                                <option value="">-- Select a room --</option>
+                            </select>
+                            <span asp-validation-for="RoomId"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CheckIn" class="form-label">
+                                    Check-in
+                                </label>
+                                <input asp-for="CheckIn"
+                                       type="date"
+                                       class="form-control" />
+                                <span asp-validation-for="CheckIn"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CheckOut" class="form-label">
+                                    Check-out
+                                </label>
+                                <input asp-for="CheckOut"
+                                       type="date"
+                                       class="form-control" />
+                                <span asp-validation-for="CheckOut"
+                                      class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-light border">
+                            <strong>Booking information</strong>
+                            <p class="mb-0 text-muted small">
+                                The total price will be calculated automatically
+                                based on the room's nightly rate and the number
+                                of nights. New bookings receive Pending status.
+                            </p>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-dark">
+                                Create Booking
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

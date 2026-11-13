@@ -1,0 +1,117 @@
+@model GrandStay.Models.Booking
+
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1 class="fw-bold">Edit Booking</h1>
+        <p class="text-muted">Update reservation information.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="alert alert-danger"></div>
+
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="mb-3">
+                            <label asp-for="GuestId" class="form-label">
+                                Guest
+                            </label>
+                            <select asp-for="GuestId"
+                                    class="form-select"
+                                    asp-items="ViewBag.GuestId">
+                                <option value="">-- Select a guest --</option>
+                            </select>
+                            <span asp-validation-for="GuestId"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RoomId" class="form-label">
+                                Room
+                            </label>
+                            <select asp-for="RoomId"
+                                    class="form-select"
+                                    asp-items="ViewBag.RoomId">
+                                <option value="">-- Select a room --</option>
+                            </select>
+                            <span asp-validation-for="RoomId"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CheckIn" class="form-label">
+                                    Check-in
+                                </label>
+                                <input asp-for="CheckIn"
+                                       type="date"
+                                       class="form-control" />
+                                <span asp-validation-for="CheckIn"
+                                      class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CheckOut" class="form-label">
+                                    Check-out
+                                </label>
+                                <input asp-for="CheckOut"
+                                       type="date"
+                                       class="form-control" />
+                                <span asp-validation-for="CheckOut"
+                                      class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label">
+                                Booking Status
+                            </label>
+                            <select asp-for="Status"
+                                    class="form-select"
+                                    asp-items="ViewBag.Status">
+                            </select>
+                            <span asp-validation-for="Status"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="alert alert-light border">
+                            <strong>Current total:</strong>
+                            @Model.TotalPrice.ToString("N2") BGN
+                            <p class="text-muted small mb-0 mt-1">
+                                The total price will be recalculated
+                                automatically when you save.
+                            </p>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-4">
+                            <button type="submit" class="btn btn-dark">
+                                Save Changes
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

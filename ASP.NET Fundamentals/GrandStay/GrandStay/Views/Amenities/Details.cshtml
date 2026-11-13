@@ -1,0 +1,51 @@
+@model GrandStay.Models.Amenity
+
+@{
+    ViewData["Title"] = "Amenity Details";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1>Amenity Details</h1>
+        <p class="text-muted">
+            View information about this hotel amenity.
+        </p>
+    </div>
+
+    <div class="card shadow-sm" style="max-width: 700px;">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Name</h4>
+            <hr />
+
+            <dl class="row mb-0">
+                <dt class="col-sm-4">Name</dt>
+                <dd class="col-sm-8">@Model.Name</dd>
+
+                <dt class="col-sm-4">Description</dt>
+                <dd class="col-sm-8">
+                    @(string.IsNullOrWhiteSpace(Model.Description)
+                        ? "No description"
+                        : Model.Description)
+                </dd>
+
+                <dt class="col-sm-4">Assigned Rooms</dt>
+                <dd class="col-sm-8">
+                    @(Model.RoomAmenities?.Count ?? 0)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="card-footer d-flex gap-2">
+            <a asp-action="Edit"
+               asp-route-id="@Model.Id"
+               class="btn btn-primary">
+                Edit Amenity
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-outline-secondary">
+                Back to Amenities
+            </a>
+        </div>
+    </div>
+</div>

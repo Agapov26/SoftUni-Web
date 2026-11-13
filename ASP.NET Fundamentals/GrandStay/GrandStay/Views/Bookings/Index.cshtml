@@ -1,0 +1,144 @@
+@model IEnumerable<GrandStay.Models.Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold mb-1">Bookings</h1>
+            <p class="text-muted mb-0">Manage all hotel reservations.</p>
+        </div>
+        <a asp-action="Create" class="btn btn-dark">
+            <i class="bi bi-plus-lg"></i> Create Booking
+        </a>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card border-0 shadow-sm">
+        <div class="card-body p-0">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-3">Guest</th>
+                                <th>Room</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th class="text-end pe-3">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="fw-semibold">
+                                            @item.Guest?.FirstName @item.Guest?.LastName
+                                        </div>
+                                        <small class="text-muted">
+                                            @item.Guest?.Email
+                                        </small>
+                                    </td>
+
+                                    <td>
+                                        <span class="fw-semibold">
+                                            Room @item.Room?.RoomNumber
+                                        </span>
+                                        <br />
+                                        <small class="text-muted">
+                                            @item.Room?.RoomType?.Name
+                                        </small>
+                                    </td>
+
+                                    <td>@item.CheckIn.ToString("dd MMM yyyy")</td>
+                                    <td>@item.CheckOut.ToString("dd MMM yyyy")</td>
+
+                                    <td class="fw-semibold">
+                                        @item.TotalPrice.ToString("N2") BGN
+                                    </td>
+
+                                    <td>
+                                        @switch (item.Status)
+                                        {
+                                            case GrandStay.Models.BookingStatus.Pending:
+                                                <span class="badge bg-warning text-dark">Pending</span>
+                                                break;
+
+                                            case GrandStay.Models.BookingStatus.Confirmed:
+                                                <span class="badge bg-success">Confirmed</span>
+                                                break;
+
+                                            case GrandStay.Models.BookingStatus.Cancelled:
+                                                <span class="badge bg-danger">Cancelled</span>
+                                                break;
+
+                                            case GrandStay.Models.BookingStatus.Completed:
+                                                <span class="badge bg-secondary">Completed</span>
+                                                break;
+                                        }
+                                    </td>
+
+                                    <td>
+                                        <small class="text-muted">
+                                            @item.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")
+                                        </small>
+                                    </td>
+
+                                    <td class="text-end pe-3">
+                                        <div class="btn-group btn-group-sm">
+                                            <a asp-action="Details"
+                                               asp-route-id="@item.Id"
+                                               class="btn btn-outline-secondary">
+                                                Details
+                                            </a>
+                                            <a asp-action="Edit"
+                                               asp-route-id="@item.Id"
+                                               class="btn btn-outline-primary">
+                                                Edit
+                                            </a>
+                                            <a asp-action="Delete"
+                                               asp-route-id="@item.Id"
+                                               class="btn btn-outline-danger">
+                                                Delete
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <h5 class="fw-semibold">No bookings yet</h5>
+                    <p class="text-muted">Create your first booking to get started.</p>
+                    <a asp-action="Create" class="btn btn-dark">Create Booking</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

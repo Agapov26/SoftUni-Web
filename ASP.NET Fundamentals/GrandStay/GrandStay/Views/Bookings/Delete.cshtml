@@ -1,0 +1,96 @@
+@model GrandStay.Models.Booking
+
+@{
+    ViewData["Title"] = "Delete Booking";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1 class="fw-bold">Delete Booking</h1>
+        <p class="text-muted">Review the reservation before deleting it.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+
+                    <div class="alert alert-danger">
+                        <strong>Warning!</strong>
+                        Are you sure you want to permanently delete this booking?
+                        This action cannot be undone.
+                    </div>
+
+                    <h5 class="fw-bold mb-3">
+                        Reservation #@Model.Id
+                    </h5>
+
+                    <dl class="row">
+                        <dt class="col-sm-4">Guest</dt>
+                        <dd class="col-sm-8">
+                            @Model.Guest?.FirstName @Model.Guest?.LastName
+                        </dd>
+
+                        <dt class="col-sm-4">Email</dt>
+                        <dd class="col-sm-8">
+                            @Model.Guest?.Email
+                        </dd>
+
+                        <dt class="col-sm-4">Room</dt>
+                        <dd class="col-sm-8">
+                            Room @Model.Room?.RoomNumber
+                        </dd>
+
+                        <dt class="col-sm-4">Room Type</dt>
+                        <dd class="col-sm-8">
+                            @Model.Room?.RoomType?.Name
+                        </dd>
+
+                        <dt class="col-sm-4">Check-in</dt>
+                        <dd class="col-sm-8">
+                            @Model.CheckIn.ToString("dd MMMM yyyy")
+                        </dd>
+
+                        <dt class="col-sm-4">Check-out</dt>
+                        <dd class="col-sm-8">
+                            @Model.CheckOut.ToString("dd MMMM yyyy")
+                        </dd>
+
+                        <dt class="col-sm-4">Total Price</dt>
+                        <dd class="col-sm-8 fw-bold">
+                            @Model.TotalPrice.ToString("N2") BGN
+                        </dd>
+
+                        <dt class="col-sm-4">Status</dt>
+                        <dd class="col-sm-8">
+                            @Model.Status
+                        </dd>
+
+                        <dt class="col-sm-4">Created At</dt>
+                        <dd class="col-sm-8">
+                            @Model.CreatedAt.ToLocalTime().ToString("dd MMMM yyyy, HH:mm")
+                        </dd>
+                    </dl>
+
+                    <hr />
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-danger">
+                                Delete Booking
+                            </button>
+
+                            <a asp-action="Index"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

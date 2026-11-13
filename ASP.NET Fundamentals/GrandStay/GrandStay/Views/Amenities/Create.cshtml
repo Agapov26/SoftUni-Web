@@ -1,0 +1,71 @@
+@model GrandStay.Models.Amenity
+
+@{
+    ViewData["Title"] = "Create Amenity";
+}
+
+<div class="container py-4">
+    <div class="mb-4">
+        <h1>Create Amenity</h1>
+        <p class="text-muted">
+            Add a new hotel amenity to GrandStay.
+        </p>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6 col-lg-5">
+            <form asp-action="Create" method="post">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">
+                        Amenity Name
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Example: Free Wi-Fi" />
+
+                    <span asp-validation-for="Name"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label">
+                        Description
+                    </label>
+
+                    <textarea asp-for="Description"
+                              class="form-control"
+                              rows="4"
+                              placeholder="Describe this amenity..."></textarea>
+
+                    <span asp-validation-for="Description"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        Create Amenity
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">
+                        Back to List
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
