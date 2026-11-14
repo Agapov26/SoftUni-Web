@@ -3156,11 +3156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agapo\\Desktop\\softuni web .netcore fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
+      "projectUniqueName": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
       "projectName": "GrandStay",
-      "projectPath": "C:\\Users\\agapo\\Desktop\\softuni web .netcore fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
+      "projectPath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
       "packagesPath": "C:\\Users\\agapo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agapo\\Desktop\\softuni web .netcore fundamentals\\GrandStay\\GrandStay\\obj\\",
+      "outputPath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

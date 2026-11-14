@@ -1,12 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\agapo\\Desktop\\softuni web .netcore fundamentals\\GrandStay\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookingsController.cs",
+              "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Controllers\\BookingsController.cs",
+              "RelativeDocumentMoniker": "GrandStay\\Controllers\\BookingsController.cs",
+              "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Controllers\\BookingsController.cs",
+              "RelativeToolTip": "GrandStay\\Controllers\\BookingsController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-14T11:05:40.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Program.cs",
+              "RelativeDocumentMoniker": "GrandStay\\Program.cs",
+              "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Program.cs",
+              "RelativeToolTip": "GrandStay\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T21:59:04.409Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

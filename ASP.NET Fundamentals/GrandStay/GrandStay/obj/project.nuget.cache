@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "os9Vtep5tFc=",
+  "dgSpecHash": "0h0mAmNZ2fQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\agapo\\Desktop\\softuni web .netcore fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
+  "projectFilePath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\GrandStay.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agapo\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\agapo\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",

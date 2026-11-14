@@ -48,6 +48,7 @@ namespace GrandStay.Controllers
             return View(booking);
         }
 
+        // GET: Bookings/Create
         public async Task<IActionResult> Create()
         {
             await PopulateDropdownsAsync();
@@ -61,8 +62,15 @@ namespace GrandStay.Controllers
             Booking booking)
         {
             ModelState.Remove(nameof(Booking.TotalPrice));
+            ModelState.Remove(nameof(Booking.Guest));
+            ModelState.Remove(nameof(Booking.Room));
 
-            if (booking.CheckOut.Date <= booking.CheckIn.Date)
+            booking.CheckIn = booking.CheckIn.Date;
+            booking.CheckOut = booking.CheckOut.Date;
+
+            bool validDates = booking.CheckOut > booking.CheckIn;
+
+            if (!validDates)
             {
                 ModelState.AddModelError(
                     nameof(Booking.CheckOut),
@@ -86,7 +94,7 @@ namespace GrandStay.Controllers
                     "This room is currently inactive.");
             }
 
-            var guestExists = await _context.Guests
+            bool guestExists = await _context.Guests
                 .AnyAsync(g => g.Id == booking.GuestId);
 
             if (!guestExists)
@@ -96,8 +104,7 @@ namespace GrandStay.Controllers
                     "Please select a valid guest.");
             }
 
-            if (room != null &&
-                booking.CheckOut.Date > booking.CheckIn.Date)
+            if (room != null && room.IsActive && validDates)
             {
                 bool hasOverlap = await _context.Bookings.AnyAsync(b =>
                     b.RoomId == booking.RoomId &&
@@ -112,8 +119,7 @@ namespace GrandStay.Controllers
                         "This room is already booked for the selected dates.");
                 }
 
-                int nights = (booking.CheckOut.Date -
-                              booking.CheckIn.Date).Days;
+                int nights = (booking.CheckOut - booking.CheckIn).Days;
 
                 booking.TotalPrice = room.RoomType.BasePrice * nights;
             }
@@ -134,8 +140,7 @@ namespace GrandStay.Controllers
 
             await PopulateDropdownsAsync(
                 booking.GuestId,
-                booking.RoomId,
-                booking.Status);
+                booking.RoomId);
 
             return View(booking);
         }
@@ -175,6 +180,8 @@ namespace GrandStay.Controllers
             }
 
             ModelState.Remove(nameof(Booking.TotalPrice));
+            ModelState.Remove(nameof(Booking.Guest));
+            ModelState.Remove(nameof(Booking.Room));
 
             var booking = await _context.Bookings.FindAsync(id);
 
@@ -183,8 +190,13 @@ namespace GrandStay.Controllers
                 return NotFound();
             }
 
-            if (updatedBooking.CheckOut.Date <=
-                updatedBooking.CheckIn.Date)
+            updatedBooking.CheckIn = updatedBooking.CheckIn.Date;
+            updatedBooking.CheckOut = updatedBooking.CheckOut.Date;
+
+            bool validDates =
+                updatedBooking.CheckOut > updatedBooking.CheckIn;
+
+            if (!validDates)
             {
                 ModelState.AddModelError(
                     nameof(Booking.CheckOut),
@@ -201,12 +213,6 @@ namespace GrandStay.Controllers
                     nameof(Booking.RoomId),
                     "Please select a valid room.");
             }
-            else if (!room.IsActive)
-            {
-                ModelState.AddModelError(
-                    nameof(Booking.RoomId),
-                    "This room is currently inactive.");
-            }
 
             bool guestExists = await _context.Guests
                 .AnyAsync(g => g.Id == updatedBooking.GuestId);
@@ -218,26 +224,37 @@ namespace GrandStay.Controllers
                     "Please select a valid guest.");
             }
 
-            if (room != null &&
-                updatedBooking.CheckOut.Date >
-                updatedBooking.CheckIn.Date)
+            if (updatedBooking.Status != BookingStatus.Cancelled)
             {
-                bool hasOverlap = await _context.Bookings.AnyAsync(b =>
-                    b.Id != id &&
-                    b.RoomId == updatedBooking.RoomId &&
-                    b.Status != BookingStatus.Cancelled &&
-                    b.CheckIn < updatedBooking.CheckOut &&
-                    b.CheckOut > updatedBooking.CheckIn);
-
-                if (hasOverlap)
+                if (room != null && !room.IsActive)
                 {
                     ModelState.AddModelError(
                         nameof(Booking.RoomId),
-                        "This room is already booked for the selected dates.");
+                        "This room is currently inactive.");
                 }
 
-                int nights = (updatedBooking.CheckOut.Date -
-                              updatedBooking.CheckIn.Date).Days;
+                if (room != null && room.IsActive && validDates)
+                {
+                    bool hasOverlap = await _context.Bookings.AnyAsync(b =>
+                        b.Id != id &&
+                        b.RoomId == updatedBooking.RoomId &&
+                        b.Status != BookingStatus.Cancelled &&
+                        b.CheckIn < updatedBooking.CheckOut &&
+                        b.CheckOut > updatedBooking.CheckIn);
+
+                    if (hasOverlap)
+                    {
+                        ModelState.AddModelError(
+                            nameof(Booking.RoomId),
+                            "This room is already booked for the selected dates.");
+                    }
+                }
+            }
+
+            if (room != null && validDates)
+            {
+                int nights = (updatedBooking.CheckOut -
+                              updatedBooking.CheckIn).Days;
 
                 updatedBooking.TotalPrice =
                     room.RoomType.BasePrice * nights;
@@ -319,7 +336,8 @@ namespace GrandStay.Controllers
                 .ToListAsync();
 
             var rooms = await _context.Rooms
-                .Where(r => r.IsActive)
+                .Where(r => r.IsActive ||
+                            (selectedRoom.HasValue && r.Id == selectedRoom.Value))
                 .OrderBy(r => r.RoomNumber)
                 .ToListAsync();
 
