@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "GrandStay\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "GrandStay\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-15T19:09:27.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "GrandStay\\Views\\Shared\\_Layout.cshtml",
@@ -39,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BookingsController.cs",
               "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Controllers\\BookingsController.cs",
               "RelativeDocumentMoniker": "GrandStay\\Controllers\\BookingsController.cs",
@@ -47,12 +64,11 @@
               "RelativeToolTip": "GrandStay\\Controllers\\BookingsController.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-14T11:05:40.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-14T11:05:40.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Program.cs",
               "RelativeDocumentMoniker": "GrandStay\\Program.cs",
