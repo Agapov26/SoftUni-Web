@@ -43,7 +43,9 @@
 
                 <div class="col-md-4">
                     <span class="text-muted">Room Type</span>
-                    <p class="fw-semibold">@Model.Room.RoomType.Name</p>
+                    <p class="fw-semibold">
+                        @(Model.Room.RoomType?.Name ?? "Not assigned")
+                    </p>
                 </div>
 
                 <div class="col-md-4">
@@ -86,7 +88,7 @@
                                            name="selectedAmenityIds"
                                            value="@amenity.Id"
                                            class="form-check-input mt-1"
-                                           checked="@Model.SelectedAmenityIds.Contains(amenity.Id)" />
+                                           checked="@(Model.SelectedAmenityIds.Contains(amenity.Id) ? "checked" : null)" />
 
                                     <span>
                                         <strong>@amenity.Name</strong>
@@ -126,6 +128,7 @@
                     <p class="text-muted">
                         Add amenities before assigning them to rooms.
                     </p>
+
                     <a asp-controller="Amenities"
                        asp-action="Create"
                        class="btn btn-dark">

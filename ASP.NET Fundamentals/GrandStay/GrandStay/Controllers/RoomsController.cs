@@ -19,6 +19,7 @@ namespace GrandStay.Controllers
         {
             var rooms = await _context.Rooms
                 .Include(r => r.RoomType)
+                .OrderBy(r => r.RoomNumber)
                 .ToListAsync();
 
             return View(rooms);
@@ -56,6 +57,14 @@ namespace GrandStay.Controllers
             Room room)
         {
             ModelState.Remove(nameof(Room.RoomType));
+
+            if (!await _context.RoomTypes.AnyAsync(
+                rt => rt.Id == room.RoomTypeId))
+            {
+                ModelState.AddModelError(
+                    nameof(Room.RoomTypeId),
+                    "Please select a valid room type.");
+            }
 
             if (ModelState.IsValid)
             {
@@ -104,6 +113,14 @@ namespace GrandStay.Controllers
 
             ModelState.Remove(nameof(Room.RoomType));
 
+            if (!await _context.RoomTypes.AnyAsync(
+                rt => rt.Id == updatedRoom.RoomTypeId))
+            {
+                ModelState.AddModelError(
+                    nameof(Room.RoomTypeId),
+                    "Please select a valid room type.");
+            }
+
             if (!ModelState.IsValid)
             {
                 await PopulateRoomTypesAsync(updatedRoom.RoomTypeId);
@@ -130,6 +147,7 @@ namespace GrandStay.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

@@ -14,8 +14,8 @@
         <div class="col-md-6 col-lg-5">
             <form asp-action="Edit" method="post">
 
-                <div asp-validation-summary="ModelOnly"
-                     class="text-danger mb-3"></div>
+                <div asp-validation-summary="All"
+                     class="alert alert-danger mb-3"></div>
 
                 <input type="hidden" asp-for="Id" />
 
@@ -45,11 +45,13 @@
                 <div class="mb-3">
                     <label asp-for="RoomTypeId"
                            class="form-label">Room Type</label>
+
                     <select asp-for="RoomTypeId"
                             asp-items="ViewBag.RoomTypeId"
                             class="form-select">
                         <option value="">-- Select Room Type --</option>
                     </select>
+
                     <span asp-validation-for="RoomTypeId"
                           class="text-danger"></span>
                 </div>
@@ -57,6 +59,7 @@
                 <div class="form-check mb-3">
                     <input asp-for="IsActive"
                            class="form-check-input" />
+
                     <label asp-for="IsActive"
                            class="form-check-label">
                         Active Room

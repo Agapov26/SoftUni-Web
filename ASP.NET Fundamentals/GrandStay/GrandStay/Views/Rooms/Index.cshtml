@@ -59,9 +59,11 @@
                             </td>
 
                             <td>
-                                @(item.Description.Length > 60
-                                    ? item.Description.Substring(0, 60) + "..."
-                                    : item.Description)
+                                @(string.IsNullOrEmpty(item.Description)
+                                ? "No description"
+                                : item.Description.Length > 60
+                                ? item.Description.Substring(0, 60) + "..."
+                                : item.Description)
                             </td>
 
                             <td>

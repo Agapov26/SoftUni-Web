@@ -1,8 +1,207 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    <section class="text-center py-5 mb-5">
+        <span class="badge bg-dark px-3 py-2 mb-3">
+            HOTEL MANAGEMENT SYSTEM
+        </span>
+
+        <h1 class="display-3 fw-bold mb-3">
+            Welcome to <span class="text-warning">GrandStay</span>
+        </h1>
+
+        <p class="lead text-muted mx-auto mb-4" style="max-width: 650px;">
+            Manage your hotel operations in one place.
+            Organize rooms, reservations, guests and amenities
+            with a simple and efficient management system.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a asp-controller="Rooms"
+               asp-action="Index"
+               class="btn btn-dark btn-lg px-4">
+                Manage Rooms
+            </a>
+
+            <a asp-controller="Bookings"
+               asp-action="Index"
+               class="btn btn-outline-dark btn-lg px-4">
+                View Bookings
+            </a>
+        </div>
+    </section>
+
+    <hr class="my-5" />
+
+    <!-- Management Section -->
+    <section class="mb-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Hotel Management</h2>
+            <p class="text-muted">
+                Choose an area you want to manage.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Rooms -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-door-open fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Rooms</h5>
+
+                        <p class="text-muted">
+                            Create, update and manage hotel rooms,
+                            room details and availability.
+                        </p>
+
+                        <a asp-controller="Rooms"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Manage Rooms
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-calendar-check fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Bookings</h5>
+
+                        <p class="text-muted">
+                            Manage reservations, check-in and check-out
+                            dates, and booking statuses.
+                        </p>
+
+                        <a asp-controller="Bookings"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Manage Bookings
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guests -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-people fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Guests</h5>
+
+                        <p class="text-muted">
+                            Maintain guest information and contact
+                            details in one place.
+                        </p>
+
+                        <a asp-controller="Guests"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Manage Guests
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Types -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-building fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Room Types</h5>
+
+                        <p class="text-muted">
+                            Configure accommodation categories,
+                            prices and maximum occupancy.
+                        </p>
+
+                        <a asp-controller="RoomTypes"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Manage Room Types
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-stars fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Amenities</h5>
+
+                        <p class="text-muted">
+                            Manage hotel amenities and assign
+                            available facilities to rooms.
+                        </p>
+
+                        <a asp-controller="Amenities"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Manage Amenities
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Amenities -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <i class="bi bi-list-check fs-1 text-warning"></i>
+                        </div>
+
+                        <h5 class="fw-bold">Room Facilities</h5>
+
+                        <p class="text-muted">
+                            Assign and organize amenities available
+                            in each individual room.
+                        </p>
+
+                        <a asp-controller="Rooms"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            Assign Facilities
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="my-5" />
+
+    <footer class="text-center py-3">
+        <h5 class="fw-bold">GrandStay</h5>
+        <p class="text-muted mb-0">
+            Hotel Management System
+        </p>
+    </footer>
+
 </div>

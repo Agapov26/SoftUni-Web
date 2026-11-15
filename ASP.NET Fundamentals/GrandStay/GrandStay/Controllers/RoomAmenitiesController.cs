@@ -64,6 +64,8 @@ namespace GrandStay.Controllers
                 return NotFound();
             }
 
+            selectedAmenityIds ??= new List<int>();
+
             var validAmenityIds = await _context.Amenities
                 .Where(a => selectedAmenityIds.Contains(a.Id))
                 .Select(a => a.Id)
