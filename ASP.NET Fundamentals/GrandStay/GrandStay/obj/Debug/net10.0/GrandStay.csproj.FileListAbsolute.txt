@@ -387,7 +387,6 @@ C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\scopedcss\bundle\GrandStay.styles.css
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\scopedcss\projectbundle\GrandStay.bundle.scp.css
-C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\compressed\l84g28dhqg-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\compressed\wjsdoddcfi-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\compressed\y4hcl1iqhn-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\compressed\q70qll9xpd-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -456,10 +455,11 @@ C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\GrandStay.csproj.Up2Date
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\GrandStay.dll
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\refint\GrandStay.dll
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\GrandStay.pdb
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\GrandStay.genruntimeconfig.cache
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\ref\GrandStay.dll
+C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\obj\Debug\net10.0\compressed\l84g28dhqg-{0}-fomtuuw1n1-fomtuuw1n1.gz

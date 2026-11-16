@@ -1,24 +1,29 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - GrandStay</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GrandStay.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm">
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg grandstay-navbar">
             <div class="container">
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
-                    GrandStay
+
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    GRANDSTAY
                 </a>
 
-                <button class="navbar-toggler" type="button"
+                <button class="navbar-toggler"
+                        type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#mainNavbar"
                         aria-controls="mainNavbar"
@@ -28,68 +33,70 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                Home
-                            </a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Rooms" asp-action="Index">
-                                Rooms
-                            </a>
+                            <a class="nav-link" asp-controller="Rooms" asp-action="Index">Rooms</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="RoomTypes" asp-action="Index">
-                                Room Types
-                            </a>
+                            <a class="nav-link" asp-controller="RoomTypes" asp-action="Index">Room Types</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Bookings" asp-action="Index">
-                                Bookings
-                            </a>
+                            <a class="nav-link" asp-controller="Bookings" asp-action="Index">Bookings</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Guests" asp-action="Index">
-                                Guests
-                            </a>
+                            <a class="nav-link" asp-controller="Guests" asp-action="Index">Guests</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Amenities" asp-action="Index">
-                                Amenities
-                            </a>
+                            <a class="nav-link" asp-controller="Amenities" asp-action="Index">Amenities</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
                     </ul>
 
-                    <div class="d-flex">
-                        <a class="btn btn-outline-light btn-sm"
-                           asp-controller="Home"
-                           asp-action="Privacy">
-                            Privacy
-                        </a>
-                    </div>
+                    <a asp-controller="Bookings"
+                       asp-action="Index"
+                       class="btn btn-primary">
+                        Manage Stay
+                    </a>
                 </div>
+
             </div>
         </nav>
     </header>
 
-    <div class="container py-4">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="site-main">
+        @RenderBody()
+    </main>
 
-    <footer class="border-top py-3 mt-4">
-        <div class="container text-center text-muted">
-            &copy; @DateTime.Now.Year - GrandStay |
-            <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="py-4">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div>
+                    <strong>GRANDSTAY</strong>
+                    <p class="mb-0">Experience comfort. Discover elegance.</p>
+                </div>
+
+                <a asp-controller="Home" asp-action="Privacy">
+                    Privacy Policy
+                </a>
+            </div>
+
+            <hr />
+
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                <small>&copy; @DateTime.Now.Year GrandStay. All rights reserved.</small>
+                <small>AN EXCEPTIONAL STAY, EVERY TIME.</small>
+            </div>
         </div>
     </footer>
 

@@ -7,7 +7,7 @@
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h1 class="fw-bold">Room Amenities</h1>
+            <h1>Room Amenities</h1>
             <p class="text-muted mb-0">
                 Manage amenities for Room @Model.Room.RoomNumber
             </p>
@@ -31,21 +31,19 @@
         </div>
     }
 
-    <div class="card border-0 shadow-sm mb-4">
-        <div class="card-body p-4">
-            <h5 class="fw-bold mb-3">Room Information</h5>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="mb-3">Room Information</h5>
 
             <div class="row">
                 <div class="col-md-4">
                     <span class="text-muted">Room Number</span>
-                    <p class="fw-semibold">Room @Model.Room.RoomNumber</p>
+                    <p>Room @Model.Room.RoomNumber</p>
                 </div>
 
                 <div class="col-md-4">
                     <span class="text-muted">Room Type</span>
-                    <p class="fw-semibold">
-                        @(Model.Room.RoomType?.Name ?? "Not assigned")
-                    </p>
+                    <p>@(Model.Room.RoomType?.Name ?? "Not assigned")</p>
                 </div>
 
                 <div class="col-md-4">
@@ -65,10 +63,9 @@
         </div>
     </div>
 
-    <div class="card border-0 shadow-sm">
-        <div class="card-body p-4">
-            <h5 class="fw-bold mb-2">Available Amenities</h5>
-
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="mb-2">Available Amenities</h5>
             <p class="text-muted mb-4">
                 Select all amenities available in this room.
             </p>
@@ -83,7 +80,7 @@
                         @foreach (var amenity in Model.AvailableAmenities)
                         {
                             <div class="col-md-6 col-lg-4">
-                                <label class="border rounded p-3 d-flex align-items-start gap-3 h-100">
+                                <label class="border rounded p-3 d-flex gap-2 h-100">
                                     <input type="checkbox"
                                            name="selectedAmenityIds"
                                            value="@amenity.Id"
@@ -108,17 +105,15 @@
 
                     <hr class="my-4" />
 
-                    <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-dark">
-                            Save Amenities
-                        </button>
+                    <button type="submit" class="btn btn-primary">
+                        Save Amenities
+                    </button>
 
-                        <a asp-controller="Rooms"
-                           asp-action="Index"
-                           class="btn btn-outline-secondary">
-                            Cancel
-                        </a>
-                    </div>
+                    <a asp-controller="Rooms"
+                       asp-action="Index"
+                       class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
                 </form>
             }
             else
@@ -131,7 +126,7 @@
 
                     <a asp-controller="Amenities"
                        asp-action="Create"
-                       class="btn btn-dark">
+                       class="btn btn-primary">
                         Create Amenity
                     </a>
                 </div>

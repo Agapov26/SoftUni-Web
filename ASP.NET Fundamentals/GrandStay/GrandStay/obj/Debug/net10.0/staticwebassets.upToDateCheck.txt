@@ -1,4 +1,3 @@
-wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -61,7 +60,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\css\site.css
+wwwroot\css\site.css
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\favicon.ico
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\js\site.js
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -123,3 +122,4 @@ C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwr
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\agapo\Desktop\SoftUni-Web\ASP.NET Fundamentals\GrandStay\GrandStay\wwwroot\css\site.css

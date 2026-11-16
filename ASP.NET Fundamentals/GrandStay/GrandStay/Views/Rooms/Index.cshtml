@@ -4,117 +4,205 @@
     ViewData["Title"] = "Rooms";
 }
 
-<div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<div class="container-fluid rooms-page py-4">
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
         <div>
-            <h1>Hotel Rooms</h1>
-            <p class="text-muted mb-0">Manage all rooms in GrandStay.</p>
+            <span class="text-uppercase small fw-semibold rooms-eyebrow">GRANDSTAY MANAGEMENT</span>
+            <h1 class="display-5 fw-semibold mt-2 mb-1 rooms-title">Our Rooms</h1>
+            <p class="text-muted mb-0">Manage your hotel's rooms, availability and amenities.</p>
         </div>
 
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Add New Room
+        <a asp-action="Create" class="btn btn-primary rooms-add-btn">
+            <i class="bi bi-plus-lg me-2"></i> Add New Room
         </a>
     </div>
 
     @if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-danger">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-circle me-2"></i>
             @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
     @if (TempData["SuccessMessage"] != null)
     {
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle me-2"></i>
             @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     }
 
-    @if (!Model.Any())
-    {
-        <div class="alert alert-info">
-            No rooms have been added yet.
-        </div>
+    @{
+        var rooms = Model?.ToList() ?? new List<GrandStay.Models.Room>();
+        var activeRooms = rooms.Count(r => r.IsActive);
+        var inactiveRooms = rooms.Count - activeRooms;
     }
-    else
-    {
-        <div class="table-responsive">
-            <table class="table table-hover align-middle">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Room Number</th>
-                        <th>Description</th>
-                        <th>Room Type</th>
-                        <th>Status</th>
-                        <th class="text-end">Actions</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card rooms-stat-card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-muted small mb-1">Total Rooms</p>
+                        <h2 class="mb-0 fw-semibold">@rooms.Count</h2>
+                    </div>
+                    <div class="rooms-stat-icon">
+                        <i class="bi bi-door-open"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card rooms-stat-card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-muted small mb-1">Active Rooms</p>
+                        <h2 class="mb-0 fw-semibold">@activeRooms</h2>
+                    </div>
+                    <div class="rooms-stat-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card rooms-stat-card h-100">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-muted small mb-1">Inactive Rooms</p>
+                        <h2 class="mb-0 fw-semibold">@inactiveRooms</h2>
+                    </div>
+                    <div class="rooms-stat-icon">
+                        <i class="bi bi-slash-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card rooms-table-card">
+        <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>
+                <h5 class="mb-1">Room Inventory</h5>
+                <p class="text-muted small mb-0">All rooms registered in GrandStay</p>
+            </div>
+            <span class="rooms-count">@rooms.Count rooms</span>
+        </div>
+
+        @if (!rooms.Any())
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-building rooms-empty-icon"></i>
+                <h5 class="mt-3">No rooms yet</h5>
+                <p class="text-muted">Start building your room inventory by adding your first room.</p>
+                <a asp-action="Create" class="btn btn-primary rooms-add-btn">
+                    <i class="bi bi-plus-lg me-2"></i> Add First Room
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table align-middle rooms-table mb-0">
+                    <thead>
                         <tr>
-                            <td class="fw-semibold">
-                                @item.RoomNumber
-                            </td>
-
-                            <td>
-                                @(string.IsNullOrEmpty(item.Description)
-                                ? "No description"
-                                : item.Description.Length > 60
-                                ? item.Description.Substring(0, 60) + "..."
-                                : item.Description)
-                            </td>
-
-                            <td>
-                                @(item.RoomType?.Name ?? "Not assigned")
-                            </td>
-
-                            <td>
-                                @if (item.IsActive)
-                                {
-                                    <span class="badge bg-success">Active</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-secondary">Inactive</span>
-                                }
-                            </td>
-
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end gap-1 flex-wrap">
-
-                                    <a asp-controller="RoomAmenities"
-                                       asp-action="Manage"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-outline-success">
-                                        <i class="bi bi-stars"></i> Manage Amenities
-                                    </a>
-
-                                    <a asp-action="Details"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-outline-info">
-                                        Details
-                                    </a>
-
-                                    <a asp-action="Edit"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-outline-primary">
-                                        Edit
-                                    </a>
-
-                                    <a asp-action="Delete"
-                                       asp-route-id="@item.Id"
-                                       class="btn btn-sm btn-outline-danger">
-                                        Delete
-                                    </a>
-
-                                </div>
-                            </td>
+                            <th>ROOM</th>
+                            <th>DESCRIPTION</th>
+                            <th>ROOM TYPE</th>
+                            <th>STATUS</th>
+                            <th class="text-end">ACTIONS</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    }
+                    </thead>
+                    <tbody>
+                        @foreach (var item in rooms.OrderBy(r => r.RoomNumber))
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="room-number-icon">
+                                            <i class="bi bi-door-closed"></i>
+                                        </div>
+                                        <div>
+                                            <span class="fw-semibold">Room @item.RoomNumber</span>
+                                            <small class="d-block text-muted">ID: @item.Id</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <span class="rooms-description">
+                                        @(string.IsNullOrEmpty(item.Description)
+                                            ? "No description available"
+                                            : item.Description.Length > 65
+                                                ? item.Description.Substring(0, 65) + "..."
+                                                : item.Description)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="rooms-type">
+                                        @(item.RoomType?.Name ?? "Not assigned")
+                                    </span>
+                                </td>
+
+                                <td>
+                                    @if (item.IsActive)
+                                    {
+                                        <span class="rooms-status rooms-status-active">
+                                            <span></span> Active
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="rooms-status rooms-status-inactive">
+                                            <span></span> Inactive
+                                        </span>
+                                    }
+                                </td>
+
+                                <td>
+                                    <div class="d-flex justify-content-end gap-2 flex-wrap">
+                                        <a asp-controller="RoomAmenities"
+                                           asp-action="Manage"
+                                           asp-route-id="@item.Id"
+                                           class="btn btn-sm rooms-action-btn"
+                                           title="Manage amenities">
+                                            <i class="bi bi-stars"></i>
+                                        </a>
+
+                                        <a asp-action="Details"
+                                           asp-route-id="@item.Id"
+                                           class="btn btn-sm rooms-action-btn"
+                                           title="View details">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+
+                                        <a asp-action="Edit"
+                                           asp-route-id="@item.Id"
+                                           class="btn btn-sm rooms-action-btn"
+                                           title="Edit room">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+
+                                        <a asp-action="Delete"
+                                           asp-route-id="@item.Id"
+                                           class="btn btn-sm rooms-action-btn rooms-delete-btn"
+                                           title="Delete room">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
 </div>

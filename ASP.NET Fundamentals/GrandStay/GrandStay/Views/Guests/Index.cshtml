@@ -42,7 +42,7 @@
     {
         <div class="table-responsive">
             <table class="table table-hover align-middle">
-                <thead class="table-dark">
+                <thead>
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -52,22 +52,19 @@
                         <th class="text-end">Actions</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="fw-semibold">@item.FirstName</td>
+                            <td>@item.FirstName</td>
                             <td>@item.LastName</td>
                             <td>@item.Email</td>
                             <td>@item.PhoneNumber</td>
-
                             <td>
                                 <span class="badge bg-secondary">
                                     @(item.Bookings?.Count ?? 0)
                                 </span>
                             </td>
-
                             <td class="text-end">
                                 <a asp-action="Details"
                                    asp-route-id="@item.Id"

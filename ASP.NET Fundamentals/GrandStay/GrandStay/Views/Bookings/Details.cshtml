@@ -7,10 +7,8 @@
 <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h1 class="fw-bold">Booking Details</h1>
-            <p class="text-muted mb-0">
-                Reservation #@Model.Id
-            </p>
+            <h1>Booking Details</h1>
+            <p class="text-muted mb-0">Reservation #@Model.Id</p>
         </div>
 
         <span class="badge fs-6
@@ -24,9 +22,9 @@
 
     <div class="row g-4">
         <div class="col-lg-8">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3">Guest Information</h5>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Guest Information</h5>
 
                     <dl class="row mb-4">
                         <dt class="col-sm-4">Full Name</dt>
@@ -35,40 +33,30 @@
                         </dd>
 
                         <dt class="col-sm-4">Email</dt>
-                        <dd class="col-sm-8">
-                            @Model.Guest?.Email
-                        </dd>
+                        <dd class="col-sm-8">@Model.Guest?.Email</dd>
 
                         <dt class="col-sm-4">Phone Number</dt>
-                        <dd class="col-sm-8">
-                            @Model.Guest?.PhoneNumber
-                        </dd>
+                        <dd class="col-sm-8">@Model.Guest?.PhoneNumber</dd>
                     </dl>
 
                     <hr />
 
-                    <h5 class="fw-bold mb-3">Room Information</h5>
+                    <h5 class="mb-3">Room Information</h5>
 
                     <dl class="row mb-4">
                         <dt class="col-sm-4">Room Number</dt>
-                        <dd class="col-sm-8">
-                            Room @Model.Room?.RoomNumber
-                        </dd>
+                        <dd class="col-sm-8">Room @Model.Room?.RoomNumber</dd>
 
                         <dt class="col-sm-4">Room Type</dt>
-                        <dd class="col-sm-8">
-                            @Model.Room?.RoomType?.Name
-                        </dd>
+                        <dd class="col-sm-8">@Model.Room?.RoomType?.Name</dd>
 
                         <dt class="col-sm-4">Description</dt>
-                        <dd class="col-sm-8">
-                            @Model.Room?.Description
-                        </dd>
+                        <dd class="col-sm-8">@Model.Room?.Description</dd>
                     </dl>
 
                     <hr />
 
-                    <h5 class="fw-bold mb-3">Stay Information</h5>
+                    <h5 class="mb-3">Stay Information</h5>
 
                     <dl class="row mb-0">
                         <dt class="col-sm-4">Check-in</dt>
@@ -101,13 +89,13 @@
         </div>
 
         <div class="col-lg-4">
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3">Actions</h5>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Actions</h5>
 
                     <a asp-action="Edit"
                        asp-route-id="@Model.Id"
-                       class="btn btn-dark w-100 mb-2">
+                       class="btn btn-primary w-100 mb-2">
                         Edit Booking
                     </a>
 

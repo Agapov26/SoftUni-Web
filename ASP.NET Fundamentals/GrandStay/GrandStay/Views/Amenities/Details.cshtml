@@ -14,7 +14,8 @@
 
     <div class="card shadow-sm" style="max-width: 700px;">
         <div class="card-body">
-            <h4 class="card-title">@Model.Name</h4>
+            <h4>@Model.Name</h4>
+
             <hr />
 
             <dl class="row mb-0">
@@ -35,15 +36,14 @@
             </dl>
         </div>
 
-        <div class="card-footer d-flex gap-2">
+        <div class="card-footer">
             <a asp-action="Edit"
                asp-route-id="@Model.Id"
                class="btn btn-primary">
                 Edit Amenity
             </a>
 
-            <a asp-action="Index"
-               class="btn btn-outline-secondary">
+            <a asp-action="Index" class="btn btn-outline-secondary">
                 Back to Amenities
             </a>
         </div>
