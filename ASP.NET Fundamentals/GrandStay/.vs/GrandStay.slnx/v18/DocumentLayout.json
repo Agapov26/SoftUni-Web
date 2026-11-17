@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|c:\\users\\agapo\\desktop\\softuni-web\\asp.net fundamentals\\grandstay\\grandstay\\views\\amenities\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BABA5C6D-59C1-9F65-856B-1850E61D2ABE}|GrandStay\\GrandStay.csproj|solutionrelative:grandstay\\views\\amenities\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "GrandStay\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "GrandStay\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAqwGwAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-16T14:17:43.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Amenities\\Index.cshtml",
-              "RelativeDocumentMoniker": "GrandStay\\Views\\Amenities\\Index.cshtml",
-              "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\Views\\Amenities\\Index.cshtml",
-              "RelativeToolTip": "GrandStay\\Views\\Amenities\\Index.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAADwv1wAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-16T15:34:22.371Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "GrandStay\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\agapo\\Desktop\\SoftUni-Web\\ASP.NET Fundamentals\\GrandStay\\GrandStay\\wwwroot\\css\\site.css",
               "RelativeToolTip": "GrandStay\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAALcAAAAAAAAAAAAYwL0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-16T14:19:44.1Z",
+              "WhenOpened": "2026-11-17T13:43:36.074Z",
               "EditorCaption": ""
             }
           ]

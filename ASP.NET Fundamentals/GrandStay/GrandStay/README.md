@@ -1,7 +1,7 @@
 ﻿GrandStay – Hotel Management System
 
 
-About the Project
+About the Project:
 
 GrandStay is an ASP.NET Core MVC web application designed to manage the main operations of a hotel.
 It provides a centralized interface for managing rooms, room types, guests, bookings, and room amenities.
